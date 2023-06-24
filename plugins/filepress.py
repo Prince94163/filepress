@@ -2,7 +2,7 @@ import requests
 import json
 
 url = "https://filepress.cfd/api/v1/file/add"
-api = "0EXvMQPO5xBcJ9ADWQhn1XqFRm/1/16IYUqT2ybcUs8="
+api = "OWn5m6d5yvZGOuUgkYMTeqdVnmNPuCVJ42LSimkb1uw="
 
 async def get_filepress(link):
         async def extract_file_id(url):
