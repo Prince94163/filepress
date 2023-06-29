@@ -48,4 +48,4 @@ async def get_shortlink(link):
             short_link = await response.text()
             return short_link.strip()
 
-app.run()
+bot.run()
