@@ -2,7 +2,7 @@ import requests
 import json
 
 url = "https://ddflix.xyz/api/v1/file/add"
-api = "ludNTKhd7piX1xvnrJlJ7XXfIOtmsYj2MmEmP9/6xSI="
+api_gdflix = "612a164b278e955562488ec8de8ba64d"
 
 async def get_ddflix(link):
         async def extract_file_id(url):
