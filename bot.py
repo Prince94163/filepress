@@ -20,7 +20,7 @@ async def welcome(client, message):
 async def set_api(client, message):
     global filepress_api
     try:
-        api = message.command[1]
+        filepress_api = message.command[1]
         await message.reply_text(f"You have set your api successfully as\n\n<code>{api}</code>")
     except IndexError:
         await message.reply_text(f"Sorry, I couldn't process your request")
@@ -29,7 +29,7 @@ async def set_api(client, message):
 async def set_api(client, message):
     global api_gdflix
     try:
-        api = message.command[1]
+        api_gdflix = message.command[1]
         await message.reply_text(f"You have set your api successfully as\n\n<code>{api}</code>")
     except IndexError:
         await message.reply_text(f"Sorry, I couldn't process your request")
@@ -41,9 +41,9 @@ async def link_handler(bot, message):
         if link.startswith("https://drive.google.com") or link.startswith("http://drive.google.com") or link.startswith("drive.google.com"):
             fp = await get_filepress(link)
             gd = await get_ddflix(link)
-            if fp[0] != "":
+            if fp[0] and gd[0] != "":
                 short_link = await get_shortlink(fp[0])
-                await message.reply(f"📂 <code>{fp[1]}</code>\n\n<b>FilePress: </b><code>{fp[0]}</code>\n\n<b>GyaniLinks: </b><code>{short_link}</code>")
+                await message.reply(f"📂 <code>{fp[1]}</code>\n\n<b>FilePress: </b><code>{fp[0]}</code>\n\n<b>GDFlix: </b><code>{gd[0]}</code>\n\n<b>GyaniLinks: </b><code>{short_link}</code>")
         else:
             short_link = await get_shortlink(link)
             await message.reply(f"Generated Shortened GyaniLinks:\n\n<code>{short_link}</code>")
