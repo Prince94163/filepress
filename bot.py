@@ -18,7 +18,7 @@ async def welcome(client, message):
 
 @bot.on_message(filters.command(["setapi_filepress"]) & filters.private)
 async def set_api(client, message):
-    global api
+    global filepress_api
     try:
         api = message.command[1]
         await message.reply_text(f"You have set your api successfully as\n\n<code>{api}</code>")
@@ -27,7 +27,7 @@ async def set_api(client, message):
 
 @bot.on_message(filters.command(["setapi_gdflix"]) & filters.private)
 async def set_api(client, message):
-    global api
+    global api_gdflix
     try:
         api = message.command[1]
         await message.reply_text(f"You have set your api successfully as\n\n<code>{api}</code>")
