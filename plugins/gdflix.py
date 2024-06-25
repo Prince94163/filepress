@@ -42,4 +42,4 @@ async def get_ddflix(link):
         file_name = data["data"]["name"]
         file_size = data["data"]["size"]
         
-        return dd_url, file_name, file_size     
+        return dd_url     
