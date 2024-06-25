@@ -37,7 +37,7 @@ async def get_filepress(link):
         data = json.loads(response_text)
 
         fp_id = data["data"]["_id"]
-        fp_url = "https://filepress.cfd/file/" + fp_id
+        fp_url = "https://filebee.xyz/file/" + fp_id
 
         file_name = data["data"]["name"]
         file_size = data["data"]["size"]
