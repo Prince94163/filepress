@@ -17,7 +17,7 @@ async def welcome(client, message):
     )
 
 @bot.on_message(filters.command(["setapi_filepress"]) & filters.private)
-async def set_api(client, message):
+async def set_api_fp(client, message):
     global filepress_api
     try:
         filepress_api = message.command[1]
@@ -26,10 +26,10 @@ async def set_api(client, message):
         await message.reply_text(f"Sorry, I couldn't process your request")
 
 @bot.on_message(filters.command(["setapi_gdflix"]) & filters.private)
-async def set_api(client, message):
+async def set_api_gd(client, message):
     global api_gdflix
     try:
-        api_gdflix = message.command[1]
+        api_gdflix = message.command[2]
         await message.reply_text(f"You have set your api successfully as\n\n<code>{api}</code>")
     except IndexError:
         await message.reply_text(f"Sorry, I couldn't process your request")
