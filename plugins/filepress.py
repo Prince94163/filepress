@@ -2,7 +2,7 @@ import requests
 import json
 
 url = "https://filebee.xyz/api/v1/file/add"
-api = "ludNTKhd7piX1xvnrJlJ7XXfIOtmsYj2MmEmP9/6xSI="
+filepress_api = "ludNTKhd7piX1xvnrJlJ7XXfIOtmsYj2MmEmP9/6xSI="
 
 async def get_filepress(link):
         async def extract_file_id(url):
