@@ -28,7 +28,7 @@ async def get_ddflix(link):
         file_id = await extract_file_id(link)
 
         payload = {
-            "key": api,
+            "key": api_gdflix,
             "id": file_id
         }
         headers = {}
