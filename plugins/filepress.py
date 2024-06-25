@@ -28,7 +28,7 @@ async def get_filepress(link):
         file_id = await extract_file_id(link)
 
         payload = {
-            "key": api,
+            "key": filepress_api,
             "id": file_id
         }
         headers = {}
