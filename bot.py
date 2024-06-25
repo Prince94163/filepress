@@ -40,7 +40,8 @@ async def link_handler(bot, message):
     try:
         if link.startswith("https://drive.google.com") or link.startswith("http://drive.google.com") or link.startswith("drive.google.com"):
             fp = await get_filepress(link)
-            gd = await get_ddflix(link)
+            # gd = await get_ddflix(link)
+            gd = 0
             if fp[0] != "":
                 short_link = await get_shortlink(fp[0])
                 await message.reply(f"📂 <code>{fp[1]}</code>\n\n<b>FilePress: </b><code>{fp[0]}</code>\n\n<b>GDFlix: </b><code>{gd}</code>\n\n<b>GyaniLinks: </b><code>{short_link}</code>")
