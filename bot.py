@@ -21,7 +21,7 @@ async def set_api_fp(client, message):
     global filepress_api
     try:
         filepress_api = message.command[1]
-        await message.reply_text(f"You have set your api successfully as\n\n<code>{api}</code>")
+        await message.reply_text(f"You have set your api successfully as\n\n<code>{filepress_api}</code>")
     except IndexError:
         await message.reply_text(f"Sorry, I couldn't process your request")
 
@@ -30,7 +30,7 @@ async def set_api_gd(client, message):
     global api_gdflix
     try:
         api_gdflix = message.command[2]
-        await message.reply_text(f"You have set your api successfully as\n\n<code>{api}</code>")
+        await message.reply_text(f"You have set your api successfully as\n\n<code>{api_gdflix}</code>")
     except IndexError:
         await message.reply_text(f"Sorry, I couldn't process your request")
 
