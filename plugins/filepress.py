@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = "https://filepress.cfd/api/v1/file/add"
+url = "https://filebee.xyz/api/v1/file/add"
 api = "ludNTKhd7piX1xvnrJlJ7XXfIOtmsYj2MmEmP9/6xSI="
 
 async def get_filepress(link):
