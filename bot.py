@@ -3,6 +3,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from plugins.helper import START_TXT
 import aiohttp
 from plugins.filepress import get_filepress
+from plugins.gdflix import get_ddflix
 
 api_id = 24736263
 api_hash = "4d53732917b73a6bb89c3b2f2f7b0902"
@@ -15,7 +16,16 @@ async def welcome(client, message):
         text = START_TXT.format(mention = message.from_user.mention)
     )
 
-@bot.on_message(filters.command(["setapi"]) & filters.private)
+@bot.on_message(filters.command(["setapi_filepress"]) & filters.private)
+async def set_api(client, message):
+    global api
+    try:
+        api = message.command[1]
+        await message.reply_text(f"You have set your api successfully as\n\n<code>{api}</code>")
+    except IndexError:
+        await message.reply_text(f"Sorry, I couldn't process your request")
+
+@bot.on_message(filters.command(["setapi_gdflix"]) & filters.private)
 async def set_api(client, message):
     global api
     try:
@@ -30,6 +40,7 @@ async def link_handler(bot, message):
     try:
         if link.startswith("https://drive.google.com") or link.startswith("http://drive.google.com") or link.startswith("drive.google.com"):
             fp = await get_filepress(link)
+            gd = await get_ddflix(link)
             if fp[0] != "":
                 short_link = await get_shortlink(fp[0])
                 await message.reply(f"📂 <code>{fp[1]}</code>\n\n<b>FilePress: </b><code>{fp[0]}</code>\n\n<b>GyaniLinks: </b><code>{short_link}</code>")
