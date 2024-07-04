@@ -136,7 +136,7 @@ async def get_gdtot(link):
     file_id = await extract_file_id(link)
 
     payload = {
-        "api_token": "w3q56J66Sb0AJMNG6ye73ihijB",
+        "api_token": "AjIGYl3afGO404qOY6761H3G7",
         "email": "imab7016@gmail.com",
         "url": file_id  # Assuming the link is a Google Drive link
     }
