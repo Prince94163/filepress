@@ -3,3 +3,4 @@ tgcrypto
 aiohttp
 regex
 requests
+os
