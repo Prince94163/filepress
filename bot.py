@@ -109,46 +109,50 @@ async def get_filepress(link):
 ###################### FILEPRESS ######################
 
 ###################### GDTOT ######################
-GDTOT_DOMAIN = environ.get("GDTOT_DOMAIN", "new4.gdtot.dad")
-GDTOT_URL = f"https://{GDTOT_DOMAIN}/api/upload/link"
-
-async def get_gdtot(link):
-        async def extract_file_id(url):
-            file_id = None
-
-            try:
-                parts = url.split('/')
-                file_id = parts[-2]  # Get the second-to-last part
-                
-                # If the file ID contains a query parameter, remove it
-                if '?' in file_id:
-                    file_id = file_id.split('?')[0]
-                
-                # If the file ID contains an 'open?id=' keyword, remove it
-                if 'open?id=' in file_id:
-                    file_id = file_id.replace('open?id=', '')
-
-            except Exception as e:
-                print("Error extracting file ID:", e)
-
-            return file_id
-
-        file_id = await extract_file_id(link)
-
-        payload = {
-            "api_token": gdtot_api,
-            "email": GDTOT_EMAIL,
-            "url": file_id
-        }
-        headers = {}
-        response = requests.post(GDTOT_UR, headers=headers, json=payload)
-        response_text = response.text
-        data = json.loads(response_text)
-
-        gd_id = data["data"]["id"]
-        gd_url = f"https://{GDTOT_DOMAIN}/file/" + gd_id
-        
-        return gd_url
+GDTOT_DOMAIN = os.environ.get("GDTOT_DOMAIN", "new4.gdtot.dad") 
+GDTOT_URL = f"https://{GDTOT_DOMAIN}/api/upload/link" 
+ 
+async def get_gdtot(link): 
+    async def extract_file_id(url): 
+        file_id = None 
+ 
+        try: 
+            parts = url.split('/') 
+            file_id = parts[-2]  # Get the second-to-last part 
+             
+            # If the file ID contains a query parameter, remove it 
+            if '?' in file_id: 
+                file_id = file_id.split('?')[0] 
+             
+            # If the file ID contains an 'open?id=' keyword, remove it 
+            if 'open?id=' in file_id: 
+                file_id = file_id.replace('open?id=', '') 
+ 
+        except Exception as e: 
+            print("Error extracting file ID:", e) 
+ 
+        return file_id 
+ 
+    file_id = await extract_file_id(link) 
+ 
+    payload = { 
+        "api_token": "w3q56J66Sb0AJMNG6ye73ihijB", 
+        "email": "imab7016@gmail.com", 
+        "url": file_id 
+    } 
+    headers = {} 
+ 
+    response = requests.request("POST", GDTOT_URL, headers=headers, json=payload) 
+    response_text = response.text  # Remove the triple quotes 
+    data = json.loads(response_text) 
+ 
+    if 'data' in data and len(data['data']) > 0: 
+        gd_id = data['data'][0]['id'] 
+        gd_url = f"https://{GDTOT_DOMAIN}/file/{gd_id}" 
+    else: 
+        gd_url = None 
+ 
+    return gd_url 
 ###################### GDTOT ######################
 
 
