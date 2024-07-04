@@ -109,7 +109,7 @@ async def get_filepress(link):
 ###################### FILEPRESS ######################
 
 ###################### GDTOT ######################
-GDTOT_DOMAIN = os.environ.get("GDTOT_DOMAIN", "new4.gdtot.dad") 
+GDTOT_DOMAIN = environ.get("GDTOT_DOMAIN", "new4.gdtot.dad") 
 GDTOT_URL = f"https://{GDTOT_DOMAIN}/api/upload/link" 
  
 async def get_gdtot(link): 
